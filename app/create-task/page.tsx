@@ -3,7 +3,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { createTask, getCurrentUser } from "@/lib/actions";
+import { createTask } from "@/lib/actions";
 import { User } from "@/lib/types";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -57,8 +57,15 @@ export default function CreateTaskPage() {
           return;
         }
 
-        const userData = await getCurrentUser();
-        if (!userData) {
+        // Fetch user profile directly from database
+        const { data: userData, error: fetchError } = await supabase
+          .from("users")
+          .select("*")
+          .eq("id", authUser.id)
+          .single();
+
+        if (fetchError || !userData) {
+          console.error("Error fetching user:", fetchError);
           router.push("/auth/login");
           return;
         }
