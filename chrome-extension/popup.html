@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>promote.social Extension</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      padding: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    .version {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .status {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .status-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .status-text {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: white;
+      color: #667eea;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      margin-bottom: 8px;
+      transition: transform 0.1s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .footer {
+      margin-top: 16px;
+      font-size: 11px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      promote<span>.social</span>
+    </div>
+    <div class="version">Extension v<span id="version">1.0.0</span></div>
+
+    <div class="status">
+      <div class="status-icon">✅</div>
+      <div class="status-text">
+        Extension is active and ready to verify your task completions.
+      </div>
+    </div>
+
+    <a href="#" class="btn" id="openSite">
+      Open promote.social
+    </a>
+    
+    <button class="btn btn-secondary" id="checkStatus">
+      Check Status
+    </button>
+
+    <div class="footer">
+      Complete tasks and earn points!
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
